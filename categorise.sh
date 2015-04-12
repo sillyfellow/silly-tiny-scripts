@@ -19,8 +19,13 @@
 
 set -o nounset                              # Treat unset variables as an error
 
+# collect all the categorised list.
+XTEMP=$(mktemp)
+cat ??.txt > $XTEMP 
+
+# remove them from the whole-list
 TEMPFILE=$(mktemp)
-grep -v -f finished.txt tobedone.txt | shuf > ${TEMPFILE}
+grep -v -f $XTEMP allsongs.txt | shuf > ${TEMPFILE}
 
 while read song 
 do
@@ -41,8 +46,8 @@ do
   echo "6 - general"
   echo "7 - who cares?"
   read CHARACTER < /dev/tty 
+  # put in correct category
   echo "$song" >> ${QUALITY}${CHARACTER}.txt 
-  echo "$song" >> finished 
 done  < ${TEMPFILE}
 
 
