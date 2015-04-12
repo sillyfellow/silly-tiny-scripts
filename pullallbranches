@@ -1,0 +1,11 @@
+#!/bin/bash - 
+
+set -o nounset                              # Treat unset variables as an error
+
+set -x 
+
+for branch in `git branch -a | grep remotes | grep -v HEAD | grep -v master`; do
+  git branch --track ${branch##*/} $branch
+done
+git pull --all -v
+git fetch --all -v
