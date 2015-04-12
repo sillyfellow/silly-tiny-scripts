@@ -27,8 +27,8 @@ cat ??.txt > $XTEMP
 TEMPFILE=$(mktemp)
 grep -v -f $XTEMP allsongs.txt | shuf > ${TEMPFILE}
 
-echo "`wc -l ${XTEMP} songs are done`"
-echo "`wc -l ${TEMPFILE} more to go`"
+echo "`wc -l ${XTEMP}` songs are done"
+echo "`wc -l ${TEMPFILE}` more to go"
 
 while read song 
 do
