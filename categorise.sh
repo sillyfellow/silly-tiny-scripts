@@ -42,6 +42,7 @@ do
   read QUALITY < /dev/tty 
   echo "What is its character?"
   echo "1 - energy"
+  echo "X - medium energy" # should have left a gaps between genres!
   echo "2 - melody"
   echo "3 - sad (good)"
   echo "4 - classic"
